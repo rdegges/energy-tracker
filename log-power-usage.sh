@@ -15,12 +15,10 @@
 # Email: randall.degges@snyk.io
 # Created: 2022-01-19
 
-
 # GLOBALS
 TRACKER_DIR=~/Library/Caches/energy-tracker 
 TRACKER_FILE=energy-log.txt
 IOREG=/usr/sbin/ioreg
-
 
 # PREREQUISITES
 mkdir -p ~/Library/Caches/energy-tracker
@@ -31,12 +29,13 @@ then
     exit 1
 fi
 
-
+# Compute energy usage
 wattage=`$IOREG -rw0 -c AppleSmartBattery | grep BatteryData | grep -o '"AdapterPower"=[0-9]*' | cut -c 16- | xargs -I %  lldb --batch -o "print/f %" | grep -o '$0 = [0-9.]*' | cut -c 6-`
 wattHours=$(bc -l <<<"${wattage}/60")
 
 # Only proceed if the amount of wattage being used is > 0
-if (( $wattage == 0 )); then
+noWatts=$(bc -l <<<${wattage}==0)
+if (( noWatts == 1 )); then
     exit
 fi
 
