@@ -12,7 +12,7 @@
 # Energy usage data is stored in ~/Library/Caches/energy-tracker/energy-log.txt
 #
 # Author: Randall Degges
-# Email: randall.degges@snyk.io
+# Email: r@rdegges.com
 # Created: 2022-01-19
 
 # GLOBALS
