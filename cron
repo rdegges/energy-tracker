@@ -1,1 +1,1 @@
-* * * * * /usr/local/bin/log-power-usage.sh >/tmp/energy-tracker.log
+* * * * * /usr/local/bin/log-power-usage.sh >> /tmp/energy-tracker.log 2>&1
