@@ -10,7 +10,7 @@ A simple script (meant to be run via cron) that tracks your Mac laptop's energy 
 To start, copy the energy tracking script into the correct folder:
 
 ```bash
-cp log-power-usage.sh /usr/local/bin/log-power-usage.sh
+sudo cp log-power-usage.sh /usr/local/bin/log-power-usage.sh
 ```
 
 Next, install the cron script which will run the energy tracker once per minute:
